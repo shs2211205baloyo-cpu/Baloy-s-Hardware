@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baloy's-Hardware</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-stone-50 text-stone-900">
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 bg-white shadow-sm">
+        <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 p-5">
+            <a href="#hero" class="text-2xl font-black md:text-4xl">
+                Baloy's <span class="text-orange-600">Hardware</span>
+            </a>
+
+            <div class="hidden gap-5 md:flex">
+                <a href="#about" class="hover:text-orange-600">About</a>
+                <a href="#work" class="hover:text-orange-600">Products</a>
+                <a href="#contact" class="hover:text-orange-600">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="mx-auto grid max-w-6xl items-center gap-8 px-5 py-16 md:grid-cols-2 md:py-24">
+            <div>
+                <p class="mb-4 font-bold uppercase tracking-widest text-orange-600">
+                    Your Local Hardware Store
+                </p>
+
+                <h1 class="mb-5 text-4xl font-black leading-tight md:text-6xl">
+                    Build Better,<br>
+                    <span class="text-orange-600">Together.</span>
+                </h1>
+
+                <p class="mb-7 max-w-lg leading-7 text-stone-600">
+                    Quality tools and building materials for your home, business, and construction projects.
+                </p>
+
+                <a href="#work"
+                    class="inline-block rounded-lg bg-orange-600 px-5 py-3 font-semibold text-white hover:bg-orange-700">
+                    Browse Products &gt;
+                </a>
+            </div>
+
+            <img class="h-72 w-full rounded-xl object-cover md:h-96"
+                src="https://i.pinimg.com/736x/05/4d/41/054d41dbf62f6e446ded8e3d8e540d69.jpg"
+                alt="Hardware tools and equipment">
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="bg-stone-200 px-5 py-16">
+            <div class="mx-auto max-w-6xl">
+                <p class="mb-3 text-4xl font-bold uppercase tracking-widest text-orange-700">
+                    About Us
+                </p>
+
+                <h2 class="mb-5 text-3xl font-black">
+                    Your Trusted Hardware Store
+                </h2>
+
+                <p class="max-w-2xl leading-7 text-stone-700">
+                    Baloy's Hardware provides tools, building materials, and everyday supplies for home repairs and
+                    construction. Our goal is to help customers find what they need for every project.
+                </p>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="work" class="mx-auto max-w-6xl px-5 py-16">
+            <p class="mb-3 text-4xl font-bold uppercase tracking-widest text-orange-600">
+                Services
+            </p>
+
+            <h2 class="mb-8 text-3xl font-black">Our Products</h2>
+
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <article class="rounded-xl bg-white p-6 shadow-sm">
+                    <h3 class="mb-3 text-3xl font-bold">Tools &amp; Equipment</h3>
+                    <p class="font-bold leading-7 text-stone-600">
+                        Hammers, screwdrivers, drills, and other useful tools.
+                    </p>
+                </article>
+
+                <article class="rounded-xl bg-white p-6 shadow-sm">
+                    <h3 class="mb-3 text-3xl font-bold">Building Materials</h3>
+                    <p class="font-bold leading-7 text-stone-600">
+                        Cement, steel bars, lumber, roofing, sand, and concrete blocks.
+                    </p>
+                </article>
+
+                <article class="rounded-xl bg-white p-6 shadow-sm">
+                    <h3 class="mb-3 text-3xl font-bold">Paint &amp; Supplies</h3>
+                    <p class="font-bold leading-7 text-stone-600">
+                        Paints, brushes, rollers, accessories, spray paint, tapes, and finishing supplies.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-stone-200 px-5 py-16">
+            <div class="mx-auto max-w-6xl">
+                <h2 class="mb-3 text-4xl font-black">Contact Us</h2>
+
+                <p class="mb-8 text-stone-600">
+                    Have questions? Send us a message.
+                </p>
+
+                <form id="contactForm" class="max-w-xl space-y-5">
+                    <div>
+                        <label for="name" class="mb-2 block font-semibold">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full rounded-lg border border-stone-300 bg-white p-3" required>
+                    </div>
+
+                    <div>
+                        <label for="email" class="mb-2 block font-semibold">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full rounded-lg border border-stone-300 bg-white p-3" required>
+                    </div>
+
+                    <div>
+                        <label for="message" class="mb-2 block font-semibold">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            class="w-full rounded-lg border border-stone-300 bg-white p-3" required></textarea>
+                    </div>
+
+                    <button type="submit
