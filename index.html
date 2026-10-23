@@ -7,28 +7,62 @@
     <title>Baloy's-Hardware</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        @theme {
+            --color-brand-bg: #F7F5F0;
+            --color-brand-secondary: #E5E0D5;
+            --color-brand-accent: #EA580C;
+        }
+
+        /* Reusable component */
+        .hardware-card {
+            @apply rounded-xl bg-white p-6 shadow-sm
+            dark:bg-stone-800 dark:text-white;
+        }
+
+        .hardware-btn {
+            @apply rounded-lg bg-brand-accent px-5 py-3
+            font-semibold text-white hover:bg-orange-700
+            dark:bg-orange-600 dark:hover:bg-orange-500;
+        }
+    </style>
 </head>
 
-<body class="bg-stone-50 text-stone-900">
+<body class="bg-brand-bg text-stone-900 dark:bg-stone-950 dark:text-stone-100">
 
-    <!-- Navigation -->
-    <header class="sticky top-0 z-40 bg-white shadow-sm">
-        <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 p-5">
-            <a href="#hero" class="text-2xl font-black md:text-4xl">
+    <div id="progressBar" class="fixed left-0 top-0 z-50 h-1 w-full origin-left bg-orange-600"
+        style="transform: scaleX(0)">
+    </div>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 bg-brand-bg/95 shadow-sm dark:bg-stone-900/95">
+        <nav class="mx-auto flex max-w-6xl items-center justify-between p-5">
+            <a href="#hero" class="text-4xl font-black">
                 Baloy's <span class="text-orange-600">Hardware</span>
             </a>
 
-            <div class="hidden gap-5 md:flex">
-                <a href="#about" class="hover:text-orange-600">About</a>
-                <a href="#work" class="hover:text-orange-600">Products</a>
-                <a href="#contact" class="hover:text-orange-600">Contact</a>
+            <div class="flex items-center gap-4">
+                <div class="hidden gap-5 md:flex">
+                    <a href="#about" class="hover:text-orange-600 dark:hover:text-orange-400">About</a>
+                    <a href="#work" class="hover:text-orange-600 dark:hover:text-orange-400">Products</a>
+                    <a href="#contact" class="hover:text-orange-600 dark:hover:text-orange-400">Contact</a>
+                </div>
+
+                <button id="darkModeToggle" type="button"
+                    class="rounded-lg border border-stone-300 px-3 py-2 dark:border-stone-600">
+                    LightMode
+                </button>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- HERO -->
         <section id="hero" class="mx-auto grid max-w-6xl items-center gap-8 px-5 py-16 md:grid-cols-2 md:py-24">
+
             <div>
                 <p class="mb-4 font-bold uppercase tracking-widest text-orange-600">
                     Your Local Hardware Store
@@ -39,41 +73,41 @@
                     <span class="text-orange-600">Together.</span>
                 </h1>
 
-                <p class="mb-7 max-w-lg leading-7 text-stone-600">
-                    Quality tools and building materials for your home, business, and construction projects.
+                <p class="mb-7 max-w-lg leading-7 text-stone-600 dark:text-stone-300">
+                    Quality tools and building materials for your home,
+                    business, and construction projects.
                 </p>
 
-                <a href="#work"
-                    class="inline-block rounded-lg bg-orange-600 px-5 py-3 font-semibold text-white hover:bg-orange-700">
-                    Browse Products &gt;
-                </a>
+                <a href="#work" class="hardware-btn">Browse Products ></a>
+
+
             </div>
 
-            <img class="h-72 w-full rounded-xl object-cover md:h-96"
+            <img class="hero-image h-72 w-full rounded-xl object-cover md:h-96"
                 src="https://i.pinimg.com/736x/05/4d/41/054d41dbf62f6e446ded8e3d8e540d69.jpg"
                 alt="Hardware tools and equipment">
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="bg-stone-200 px-5 py-16">
+        <!-- ABOUT -->
+        <section id="about" class="reveal bg-brand-secondary px-5 py-16 dark:bg-stone-900">
             <div class="mx-auto max-w-6xl">
-                <p class="mb-3 text-4xl font-bold uppercase tracking-widest text-orange-700">
+                <p class="mb-3 text-4xl font-bold uppercase tracking-widest text-orange-700 dark:text-orange-400">
                     About Us
                 </p>
 
-                <h2 class="mb-5 text-3xl font-black">
-                    Your Trusted Hardware Store
-                </h2>
+                <h2 class="mb-5 text-3xl font-black">Your Trusted Hardware Store</h2>
 
-                <p class="max-w-2xl leading-7 text-stone-700">
-                    Baloy's Hardware provides tools, building materials, and everyday supplies for home repairs and
-                    construction. Our goal is to help customers find what they need for every project.
+                <p class="max-w-2xl leading-7 text-stone-700 dark:text-stone-300">
+                    Baloy's Hardware provides tools, building materials, and
+                    everyday supplies for home repairs and construction.
+                    Our goal is to help customers find what they need for
+                    every project.
                 </p>
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section id="work" class="mx-auto max-w-6xl px-5 py-16">
+        <!-- PRODUCTS -->
+        <section id="work" class="reveal mx-auto max-w-6xl px-5 py-16">
             <p class="mb-3 text-4xl font-bold uppercase tracking-widest text-orange-600">
                 Services
             </p>
@@ -81,35 +115,38 @@
             <h2 class="mb-8 text-3xl font-black">Our Products</h2>
 
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <article class="rounded-xl bg-white p-6 shadow-sm">
-                    <h3 class="mb-3 text-3xl font-bold">Tools &amp; Equipment</h3>
-                    <p class="font-bold leading-7 text-stone-600">
+
+                <article class="hardware-card reveal">
+                    <h3 class="mb-3 text-3xl font-bold">Tools & Equipment</h3>
+                    <p class="leading-7 text-stone-600 dark:text-stone-300 font-bold">
                         Hammers, screwdrivers, drills, and other useful tools.
                     </p>
                 </article>
 
-                <article class="rounded-xl bg-white p-6 shadow-sm">
+                <article class="hardware-card reveal">
                     <h3 class="mb-3 text-3xl font-bold">Building Materials</h3>
-                    <p class="font-bold leading-7 text-stone-600">
-                        Cement, steel bars, lumber, roofing, sand, and concrete blocks.
+                    <p class="leading-7 text-stone-600 dark:text-stone-300 font-bold">
+                        Cement, Steelbar, Lumber, Roofing, Sand, Concrete Blocks.
                     </p>
                 </article>
 
-                <article class="rounded-xl bg-white p-6 shadow-sm">
-                    <h3 class="mb-3 text-3xl font-bold">Paint &amp; Supplies</h3>
-                    <p class="font-bold leading-7 text-stone-600">
-                        Paints, brushes, rollers, accessories, spray paint, tapes, and finishing supplies.
+                <article class="hardware-card reveal">
+                    <h3 class="mb-3 text-3xl font-bold">Paint & Supplies</h3>
+                    <p class="leading-7 text-stone-600 dark:text-stone-300 font-bold">
+                        Paints, brushes, rollers, accesories, Spray, Tapes
+                        and finishing supplies.
                     </p>
                 </article>
+
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="bg-stone-200 px-5 py-16">
+        <!-- CONTACT -->
+        <section id="contact" class="reveal bg-brand-secondary px-5 py-16 dark:bg-stone-900">
             <div class="mx-auto max-w-6xl">
                 <h2 class="mb-3 text-4xl font-black">Contact Us</h2>
 
-                <p class="mb-8 text-stone-600">
+                <p class="mb-8 text-stone-600 dark:text-stone-300">
                     Have questions? Send us a message.
                 </p>
 
@@ -117,19 +154,43 @@
                     <div>
                         <label for="name" class="mb-2 block font-semibold">Name</label>
                         <input type="text" id="name" name="name"
-                            class="w-full rounded-lg border border-stone-300 bg-white p-3" required>
+                            class="w-full rounded-lg border border-stone-300 bg-white p-3 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-white"
+                            required>
                     </div>
 
                     <div>
                         <label for="email" class="mb-2 block font-semibold">Email</label>
                         <input type="email" id="email" name="email"
-                            class="w-full rounded-lg border border-stone-300 bg-white p-3" required>
+                            class="w-full rounded-lg border border-stone-300 bg-white p-3 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-white"
+                            required>
                     </div>
 
                     <div>
                         <label for="message" class="mb-2 block font-semibold">Message</label>
                         <textarea id="message" name="message" rows="5"
-                            class="w-full rounded-lg border border-stone-300 bg-white p-3" required></textarea>
+                            class="w-full rounded-lg border border-stone-300 bg-white p-3 text-stone-900 dark:border-stone-600 dark:bg-stone-800 dark:text-white"
+                            required></textarea>
                     </div>
 
-                    <button type="submit
+                    <button type="submit" class="hardware-btn">Send Message</button>
+
+                    <p id="formNotice" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 px-5 py-6 text-center text-white dark:bg-black">
+        <p class="font-bold">Baloy's-Hardware</p>
+        <p class="mt-2 text-sm text-stone-400">
+            © 2026 Baloy's-Hardware. All rights reserved.
+        </p>
+    </footer>
+    <!-- Required script load order -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
